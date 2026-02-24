@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #b4cce4;
+  display: flex;
+  justify-content: center;
+  padding: 40px 12px;
+}
+.id {
+ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+ font-size: large;
+}
