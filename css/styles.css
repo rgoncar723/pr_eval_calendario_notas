@@ -1,14 +1,69 @@
-* {
-  box-sizing: border-box;
-}
 
 body {
-  background-color: #b4cce4;
-  display: flex;
-  justify-content: center;
-  padding: 40px 12px;
+    background-color: #f0f4f8; 
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 40px 20px;
+    color: #333;
 }
-.id {
- font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
- font-size: large;
+
+#init {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
 }
+
+p {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+
+.month {
+    background-color: white;
+    height: auto; 
+    min-height: 250px;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    border-top: 5px solid #daa07a; 
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+}
+
+.month h2 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+
+.month:hover {
+   
+    background: linear-gradient(135deg, #daa07a 10%, #cea759 100%);
+    cursor: pointer;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(61, 154, 157, 0.3);
+}
+
+
+.month:hover h2{
+    color: white;
+}
+
