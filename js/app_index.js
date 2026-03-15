@@ -2,14 +2,16 @@ const months = document.querySelectorAll('.month');
 const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const dayNames = ['D', 'L', 'M', 'X', 'J', 'V', 'S'];
 const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
-
+const listado = document.querySelector('.listado-global');
+const btnLimpiar = document.querySelector('#btn-limpiar');
+const btnListar = document.querySelector('#btn-listar');
 
 const CLAVE_STORAGE="calendario_notas";
 
 function obtenerNotas() {
     const raw = localStorage.getItem(CLAVE_STORAGE);
     if(raw == null) {
-        return null;
+        return [];
     }
     try{
         const datos = JSON.parse(raw);
@@ -26,6 +28,8 @@ function borrarTodo(){
     if(confirm("¿Estás seguro de que deseas borrar todas las notas? Esta acción no se puede deshacer.")) {
         localStorage.removeItem(CLAVE_STORAGE);
         alert("Todas las notas han sido borradas.");
+        renderizarCalendario();
+        listado.innerHTML = "";
     } else {
         alert("Acción cancelada. Las notas no han sido borradas.");
     }
@@ -70,6 +74,38 @@ function crearTarjetaMes(nombre, indice, cantidadNotas) {
         window.location.href = `mes.html?mes=${indice}`;
     };
 
-    // 5. Devuelve el div fabricado
+    // Devuelve el div fabricado
     return div;
 }
+
+function mostrarListadoGlobal() {
+    const todasLasNotas = obtenerNotas();
+  
+
+    listado.innerHTML ="";
+
+    if(todasLasNotas.length === 0) {
+        listado.innerHTML="<p> No hay ninguna nota en el calendario </p>";
+        return;
+    }
+    const ul = document.createElement('ul');
+    
+    for( let i = 0; i < todasLasNotas.length; i++){
+        const nota = todasLasNotas[i];
+        const itemLi = document.createElement('li');
+        const nombreMes = monthNames[nota.mes];
+
+        itemLi.textContent = `[${nombreMes}] ${nota.titulo}`;
+
+        ul.appendChild(itemLi);
+}
+    listado.appendChild(ul);
+}
+document.addEventListener("DOMContentLoaded", () => {
+    // carga el calendario
+    renderizarCalendario();
+
+    // Eventos de botones globales
+    btnLimpiar.addEventListener("click", borrarTodo);
+    btnListar.addEventListener("click", mostrarListadoGlobal);
+});
