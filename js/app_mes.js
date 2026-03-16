@@ -77,7 +77,7 @@ function guardarNota(evento) {
     let todas = obtenerNotas();
 
     if (idExistente === "") {
-        // CREAR NUEVA
+    
         const nuevaNota = {
             id: Date.now(),
             titulo: titulo,
@@ -86,7 +86,7 @@ function guardarNota(evento) {
         };
         todas.push(nuevaNota);
     } else {
-        // EDITAR EXISTENTE
+      
         const idNum = Number(idExistente);
         todas = todas.map(n => n.id === idNum ? { ...n, titulo, descripcion } : n);
     }
@@ -104,7 +104,7 @@ function cargarNotaEnFormulario(id) {
     document.getElementById('titulo').value = nota.titulo;
     document.getElementById('descripcion').value = nota.descripcion;
     document.getElementById('nota-id').value = nota.id;
-    window.scrollTo(0, 0); // Sube para ver el formulario
+   
 }
 
 function eliminarNota(id) {
@@ -116,7 +116,7 @@ function eliminarNota(id) {
     }
 }
 
-// 6. Inicio
+
 document.addEventListener("DOMContentLoaded", () => {
     configurarCabecera();
     renderizarNotasDelMes();
