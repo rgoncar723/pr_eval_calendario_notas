@@ -1,64 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="stylesheet" href="css/styles.css" />
-      <script src="app_index.js" defer></script>
+      <script src="js/app_index.js" defer></script>
       <title>Calendario de notas</title>
    </head>
     <body>
         <h1 id="init">Calendario de notas</h1>
         <p>Año 2026</p>
-        <div id="calendar">
-            <div class="month">
-                <h2>Enero</h2>
-                <a href="notas.html?mes=0">Ver notas</a>
+
+        <div class="calendar">
             </div>
-            <div class="month">
-                <h2>Febrero</h2>
-                <a href="notas.html?mes=1">Ver notas</a>  
-            </div>
-            <div class="month">
-                <h2>Marzo</h2>
-                <a href="notas.html?mes=2">Ver notas</a>
-            </div>
-            <div class="month">
-                <h2>Abril</h2>
-                <a href="notas.html?mes=3">Ver notas</a>
-            </div>
-            <div class="month">
-                <h2>Mayo</h2>
-                <a href="notas.html?mes=4">Ver notas</a>
-            </div>
-            <div class="month">
-                <h2>Junio</h2>
-                <a href="notas.html?mes=5">Ver notas</a>
-            </div>
-            <div class="month">
-                <h2>Julio</h2>
-                <a href="notas.html?mes=6">Ver notas</a>
-            </div>
-            <div class="month">
-                <h2>Agosto</h2>
-                <a href="notas.html?mes=7">Ver notas</a>
-            </div>
-            <div class="month">
-                <h2>Septiembre</h2>
-                <a href="notas.html?mes=8">Ver notas</a>
-            </div>
-            <div class="month">
-                <h2>Octubre</h2>
-                <a href="notas.html?mes=9">Ver notas</a>
-            </div>
-            <div class="month">
-                <h2>Noviembre</h2>
-                <a href="notas.html?mes=10">Ver notas</a>
-            </div>
-            <div class="month">
-                <h2>Diciembre</h2>
-                <a href="notas.html?mes=11">Ver notas</a>
-            </div>
+
+        <div class="acciones-globales">
+            <button id="btn-listar">Listar todas las notas</button>
+            <button id="btn-limpiar">Borrar todas las notas</button>
         </div>
+
+        <hr>
+
+        <section class="listado-seccion">
+            <h2>Listado Global</h2>
+            <div class="listado-global">
+                </div>
+        </section>
+
     </body>
-</html> 
+</html>

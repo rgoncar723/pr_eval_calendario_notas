@@ -1,6 +1,4 @@
 const months = document.querySelectorAll('.month');
-const daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-const dayNames = ['D', 'L', 'M', 'X', 'J', 'V', 'S'];
 const monthNames = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
 const listado = document.querySelector('.listado-global');
 const btnLimpiar = document.querySelector('#btn-limpiar');
@@ -37,6 +35,9 @@ function borrarTodo(){
     const calendario = document.querySelector('.calendar'); 
     const notas = obtenerNotas();
 
+   if (!calendario){
+     return;
+   } 
     calendario.innerHTML = "";
 
     for (let i = 0; i < monthNames.length; i++) {
@@ -101,11 +102,10 @@ function mostrarListadoGlobal() {
 }
     listado.appendChild(ul);
 }
-document.addEventListener("DOMContentLoaded", () => {
-    // carga el calendario
-    renderizarCalendario();
 
-    // Eventos de botones globales
-    btnLimpiar.addEventListener("click", borrarTodo);
-    btnListar.addEventListener("click", mostrarListadoGlobal);
-});
+    
+
+    if (btnLimpiar) btnLimpiar.addEventListener("click", borrarTodo);
+    if (btnListar) btnListar.addEventListener("click", mostrarListadoGlobal);
+
+    renderizarCalendario();

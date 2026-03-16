@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Notas</title>
+    <title>Gestión de Notas - Mes</title>
     <link rel="stylesheet" href="css/styles.css">
+    
 </head>
 <body>
 
@@ -15,28 +16,24 @@
 
     <main>
         <section id="seccion-formulario">
-            <h2 id="form-subtitulo">Nueva Nota</h2>
+            <h2 id="form-subtitulo">Nueva / Editar Nota</h2>
+            
             <form id="form-nota">
                 <input type="hidden" id="nota-id">
                 
                 <div class="campo">
                     <label for="titulo">Título:</label>
-                    <input type="text" id="titulo" placeholder="Ej: Cita médica">
+                    <input type="text" id="titulo" placeholder="Ej: Cita médica" required>
                 </div>
 
                 <div class="campo">
                     <label for="descripcion">Descripción:</label>
-                    <textarea id="descripcion" placeholder="Detalles de la nota..."></textarea>
-                </div>
-
-                <div class="campo">
-                    <label for="dia">Día (opcional):</label>
-                    <input type="number" id="dia" min="1" max="31">
+                    <textarea id="descripcion" placeholder="Detalles de la nota..." required></textarea>
                 </div>
 
                 <button type="submit" id="btn-guardar">Guardar Nota</button>
                 
-                <p id="error-msg" class="error-hidden"></p>
+                <p id="error-msg" style="color: red; display: none;"></p>
             </form>
         </section>
 
@@ -44,12 +41,11 @@
 
         <section id="seccion-listado">
             <h2>Mis Notas</h2>
-            <div id="contenedor-notas">
-                <p class="msg-vacio">No hay notas para este mes.</p>
+            <div class="notas-mes">
+                <p class="msg-vacio">Cargando notas...</p>
             </div>
         </section>
     </main>
-
     <script src="js/app_mes.js"></script>
 </body>
 </html>

@@ -22,7 +22,7 @@ p {
 }
 
 
-#calendar {
+.calendar {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3,1fr);
@@ -32,10 +32,9 @@ p {
 }
 
 
-.month {
+.mes-card {
     background-color: white;
-    height: auto; 
-    min-height: 250px;
+    min-height: 180px;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
@@ -43,37 +42,97 @@ p {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
-.month h2 {
-    text-align: center;
-    margin-top: 0;
+.mes-card h3 {
+    margin: 0;
     font-size: 1.5rem;
     color: #333;
-    transition: color 0.3s ease;
+}
+
+.mes-card p {
+    margin: 10px 0 0 0;
+    color: #666;
 }
 
 
-.month:hover {
-   
-    background: linear-gradient(135deg, #daa07a 10%, #cea759 100%);
-    cursor: pointer;
+.mes-card.destacado {
+    border-top-color: #2ecc71; /* Verde para indicar actividad */
+    background-color: #ffffff;
+}
+
+.mes-card.apagado {
+    opacity: 0.7;
+    border-top-color: #bdc3c7; 
+    filter: grayscale(0.5);
+}
+
+
+.mes-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(61, 154, 157, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #daa07a 10%, #cea759 100%);
 }
-a{
-   text-decoration: none;
-}
-.month:hover a {
+
+.mes-card:hover h3, 
+.mes-card:hover p {
     color: white;
+}
+
+
+.notas-mes {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.nota-item, .nota-card {
+    background: white;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-left: 5px solid #daa07a;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.acciones {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+/* --- Botones --- */
+button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
     font-weight: bold;
-    font-size: 30px;
-    transition: all 0.3s ease;
-    text-align: center;
-    
+    transition: background 0.3s;
 }
 
-.month:hover h2{
-    color: white;
+#btn-listar { background-color: #3498db; color: white; }
+#btn-limpiar { background-color: #e74c3c; color: white; }
+.btn-editar { background-color: #f1c40f; color: #333; }
+.btn-eliminar { background-color: #e74c3c; color: white; }
+
+button:hover {
+    filter: brightness(1.1);
 }
 
+.listado-global ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.listado-global li {
+    background: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+    border-left: 3px solid #3498db;
+}
