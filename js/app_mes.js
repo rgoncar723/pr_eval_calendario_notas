@@ -25,7 +25,7 @@ function guardarNotasEnStorage(notas) {
 }
 
 function configurarCabecera() {
-    const titulo = document.querySelector('titulo-mes');
+    const titulo = document.querySelector('.titulo-mes');
     if (titulo) {
         titulo.textContent = `Notas de ${monthNames[mesActualIdx]}`;
     }
@@ -101,9 +101,9 @@ function cargarNotaEnFormulario(id) {
     const nota = obtenerNotas().find(n => n.id === id);
     if (!nota) return;
 
-    document.querySelector('titulo').value = nota.titulo;
-    document.querySelector('descripcion').value = nota.descripcion;
-    document.querySelector('nota-id').value = nota.id;
+    document.querySelector('.titulo').value = nota.titulo;
+    document.querySelector('.descripcion').value = nota.descripcion;
+    document.querySelector('.nota-id').value = nota.id;
    
 }
 
@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     configurarCabecera();
     renderizarNotasDelMes();
 
-    const formulario = document.querySelector('form-nota');
+    const formulario = document.querySelector('.form-nota');
     if (formulario) {
         formulario.addEventListener("submit", guardarNota);
     }
