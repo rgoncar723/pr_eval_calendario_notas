@@ -121,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     configurarCabecera();
     renderizarNotasDelMes();
 
-    const formulario = document.getElementById('form-nota');
+    const formulario = document.querySelector('form-nota');
     if (formulario) {
         formulario.addEventListener("submit", guardarNota);
     }
