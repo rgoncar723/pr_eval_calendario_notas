@@ -25,14 +25,14 @@ function guardarNotasEnStorage(notas) {
 }
 
 function configurarCabecera() {
-    const titulo = document.querySelector('.titulo-mes');
+    const titulo = document.getElementById('titulo-mes');
     if (titulo) {
         titulo.textContent = `Notas de ${monthNames[mesActualIdx]}`;
     }
 }
 
 function renderizarNotasDelMes() {
-    const contenedor = document.querySelector('#notas-mes');
+    const contenedor = document.querySelector('.notas-mes');
     if (!contenedor) return;
 
     const todas = obtenerNotas();
@@ -63,11 +63,6 @@ function renderizarNotasDelMes() {
 
 
 function guardarNota(evento) {
-        console.log("Evento recibido:", evento); 
-    if (!evento) {
-        console.error("¡No se recibió el evento!");
-        return;
-    }
     evento.preventDefault();
 
     const titulo = document.querySelector('#titulo').value.trim();
@@ -106,9 +101,9 @@ function cargarNotaEnFormulario(id) {
     const nota = obtenerNotas().find(n => n.id === id);
     if (!nota) return;
 
-    document.querySelector('#titulo').value = nota.titulo;
-    document.querySelector('#descripcion').value = nota.descripcion;
-    document.querySelector('#nota-id').value = nota.id;
+    document.getElementById('titulo').value = nota.titulo;
+    document.getElementById('descripcion').value = nota.descripcion;
+    document.getElementById('nota-id').value = nota.id;
    
 }
 
@@ -126,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
     configurarCabecera();
     renderizarNotasDelMes();
 
-    const formulario = document.querySelector('#form-nota');
+    const formulario = document.getElementById('form-nota');
     if (formulario) {
         formulario.addEventListener("submit", guardarNota);
     }
