@@ -63,6 +63,11 @@ function renderizarNotasDelMes() {
 
 
 function guardarNota(evento) {
+        console.log("Evento recibido:", evento); 
+    if (!evento) {
+        console.error("¡No se recibió el evento!");
+        return;
+    }
     evento.preventDefault();
 
     const titulo = document.querySelector('#titulo').value.trim();
