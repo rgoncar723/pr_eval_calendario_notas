@@ -98,7 +98,7 @@ function guardarNota(evento) {
 
     guardarNotasEnStorage(todas);
     evento.target.reset();
-    document.querySelector('#nota-id').value = "";
+    document.getElementById('nota-id').value = "";
     renderizarNotasDelMes();
 }
 
